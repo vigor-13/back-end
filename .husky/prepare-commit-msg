@@ -1,0 +1,22 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+ORIGIN=$(cat $1)
+
+echo "" > $1
+echo "" >> $1
+echo "# Select the type of change that you're committing:" >> $1
+echo "# feat:     ✨ A new featrue" >> $1
+echo "# fix:      🐛 A bug fix" >> $1
+echo "# docs:     📚 Documentation only changes" >> $1
+echo "# style:    💎 Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)" >> $1
+echo "# refector: 📦 A code change that neither fixes a bug nor adds a feature" >> $1
+echo "# perf:     🚀 A code change that improves performance" >> $1
+echo "# test:     🚨 Adding missing tests or correcting existing tests" >> $1
+echo "# build:    🛠 Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)" >> $1
+echo "# ci:       ⚙️ Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)" >> $1
+echo "# chore:    ♻️ Other changes that don't modify src or test files" >> $1
+echo "# revert:   🗑 Reverts a previous commit" >> $1
+echo "$ORIGIN" >> $1
+
+
