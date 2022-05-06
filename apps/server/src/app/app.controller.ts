@@ -9,4 +9,10 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('/mode')
+  getMode(): string {
+    const mode = this.appService.getMode();
+    return `MODE: ${mode}`;
+  }
 }
