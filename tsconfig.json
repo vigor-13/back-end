@@ -18,12 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "libs/db-prisma": [
-        "libs/db-prisma/src"
-      ],
-      "libs/db-prisma/*": [
-        "libs/db-prisma/src/*"
-      ]
+      "libs/db-prisma": ["libs/db-prisma/src"],
+      "libs/db-prisma/*": ["libs/db-prisma/src/*"],
+      "@app/db-prisma": ["libs/db-prisma/src"],
+      "@app/db-prisma/*": ["libs/db-prisma/src/*"]
     }
   }
 }
