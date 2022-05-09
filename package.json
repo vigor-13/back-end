@@ -87,7 +87,8 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^libs/db-prisma(|/.*)$": "<rootDir>/libs/db-prisma/src/$1"
+      "^libs/db-prisma(|/.*)$": "<rootDir>/libs/db-prisma/src/$1",
+      "^libs/health(|/.*)$": "<rootDir>/libs/health/src/$1"
     }
   }
 }
