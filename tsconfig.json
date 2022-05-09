@@ -17,6 +17,13 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {}
+    "paths": {
+      "libs/db-prisma": [
+        "libs/db-prisma/src"
+      ],
+      "libs/db-prisma/*": [
+        "libs/db-prisma/src/*"
+      ]
+    }
   }
 }

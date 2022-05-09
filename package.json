@@ -79,7 +79,11 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
-    ]
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "^libs/db-prisma(|/.*)$": "<rootDir>/libs/db-prisma/src/$1"
+    }
   }
 }

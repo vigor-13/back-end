@@ -29,6 +29,15 @@
           }
         ]
       }
+    },
+    "db-prisma": {
+      "type": "library",
+      "root": "libs/db-prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/db-prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/db-prisma/tsconfig.lib.json"
+      }
     }
   }
 }
