@@ -4,6 +4,7 @@ import configuration from '../../configs/configuration';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DbPrismaModule } from '@app/db-prisma';
+import { HealthModule } from '@app/health';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { DbPrismaModule } from '@app/db-prisma';
       load: [configuration],
     }),
     DbPrismaModule,
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
