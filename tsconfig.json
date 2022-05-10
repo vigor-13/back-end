@@ -16,6 +16,16 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "libs/db-prisma": ["libs/db-prisma/src"],
+      "libs/db-prisma/*": ["libs/db-prisma/src/*"],
+      "libs/health": ["libs/health/src"],
+      "libs/health/*": ["libs/health/src/*"],
+      "@app/db-prisma": ["libs/db-prisma/src"],
+      "@app/db-prisma/*": ["libs/db-prisma/src/*"],
+      "@app/health": ["libs/health/src"],
+      "@app/health/*": ["libs/health/src/*"]
+    }
   }
 }

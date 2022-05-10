@@ -1,5 +1,52 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "monorepo": true,
+  "root": "apps/server",
+  "sourceRoot": "apps/server/src",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/server/tsconfig.app.json",
+    "assets": [
+      {
+        "include": "../configs/*.yml",
+        "outDir": "./dist/apps/server"
+      }
+    ]
+  },
+  "projects": {
+    "server": {
+      "type": "application",
+      "root": "apps/server",
+      "entryFile": "main",
+      "sourceRoot": "apps/server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/server/tsconfig.app.json",
+        "assets": [
+          {
+            "include": "../configs/*.yml",
+            "outDir": "./dist/apps/server"
+          }
+        ]
+      }
+    },
+    "db-prisma": {
+      "type": "library",
+      "root": "libs/db-prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/db-prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/db-prisma/tsconfig.lib.json"
+      }
+    },
+    "health": {
+      "type": "library",
+      "root": "libs/health",
+      "entryFile": "index",
+      "sourceRoot": "libs/health/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/health/tsconfig.lib.json"
+      }
+    }
+  }
 }
