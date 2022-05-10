@@ -3,10 +3,10 @@ import { ConfigService } from '@nestjs/config';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 const runSwagger = (app: INestApplication) => {
-  const appConfig = app.get(ConfigService).get('swagger');
-  if (!appConfig) return;
+  const appConfig = app.get(ConfigService).get('config');
+  if (!appConfig.swagger) return;
 
-  const { title, description, version, path } = appConfig;
+  const { title, description, version, path } = appConfig.swagger;
 
   const config = new DocumentBuilder()
     .setTitle(title)
