@@ -22,10 +22,14 @@
       "libs/db-prisma/*": ["libs/db-prisma/src/*"],
       "libs/health": ["libs/health/src"],
       "libs/health/*": ["libs/health/src/*"],
+      "libs/logger": ["libs/logger/src"],
+      "libs/logger/*": ["libs/logger/src/*"],
       "@app/db-prisma": ["libs/db-prisma/src"],
       "@app/db-prisma/*": ["libs/db-prisma/src/*"],
       "@app/health": ["libs/health/src"],
-      "@app/health/*": ["libs/health/src/*"]
+      "@app/health/*": ["libs/health/src/*"],
+      "@app/logger": ["libs/logger/src"],
+      "@app/logger/*": ["libs/logger/src/*"]
     }
   }
 }
