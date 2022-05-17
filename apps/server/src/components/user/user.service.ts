@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { AbstractUserService } from 'libs/auth';
 
 // This should be a real class/interface representing a user entity
 export type User = any;
 
 @Injectable()
-export class UserService {
+export class UserService implements AbstractUserService {
   private readonly users = [
     {
       userId: 1,
