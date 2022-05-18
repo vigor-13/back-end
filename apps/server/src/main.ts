@@ -1,4 +1,5 @@
 import { ConfigService } from '@nestjs/config';
+import { VersioningType, VERSION_NEUTRAL } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppLogger } from '@app/logger';
 import { AppModule } from './app/app.module';
@@ -10,11 +11,15 @@ async function bootstrap() {
     autoFlushLogs: true,
   });
 
+  const appLogger = new AppLogger();
   const config = app.get(ConfigService).get('config');
   const { host, port } = config.http;
 
-  const appLogger = new AppLogger();
   app.useLogger(appLogger);
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: VERSION_NEUTRAL,
+  });
 
   runSwagger(app);
 

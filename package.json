@@ -1,6 +1,6 @@
 {
   "name": "@back-end/root",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "",
   "author": "vigor-13",
   "private": true,
@@ -27,11 +27,16 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^2.0.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/jwt": "^8.0.0",
+    "@nestjs/passport": "^8.2.1",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/terminus": "^8.0.6",
     "@prisma/client": "^3.13.0",
     "js-yaml": "^4.1.0",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
@@ -47,6 +52,8 @@
     "@types/jest": "27.5.0",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^16.0.0",
+    "@types/passport-jwt": "^3.0.6",
+    "@types/passport-local": "^1.0.34",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
@@ -89,7 +96,8 @@
     "moduleNameMapper": {
       "^libs/db-prisma(|/.*)$": "<rootDir>/libs/db-prisma/src/$1",
       "^libs/health(|/.*)$": "<rootDir>/libs/health/src/$1",
-      "^libs/logger(|/.*)$": "<rootDir>/libs/logger/src/$1"
+      "^libs/logger(|/.*)$": "<rootDir>/libs/logger/src/$1",
+      "^libs/auth(|/.*)$": "<rootDir>/libs/auth/src/$1"
     }
   }
 }
