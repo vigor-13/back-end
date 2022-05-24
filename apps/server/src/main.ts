@@ -10,16 +10,21 @@ async function bootstrap() {
     bufferLogs: true,
     autoFlushLogs: true,
   });
-
   const appLogger = new AppLogger();
   const config = app.get(ConfigService).get('config');
   const { host, port } = config.http;
+  const cors = config.cors;
 
-  app.useLogger(appLogger);
+  app.enableCors({
+    origin: cors.origin,
+  });
+
   app.enableVersioning({
     type: VersioningType.URI,
     defaultVersion: VERSION_NEUTRAL,
   });
+
+  app.useLogger(appLogger);
 
   runSwagger(app);
 

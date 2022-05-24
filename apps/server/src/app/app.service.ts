@@ -10,7 +10,7 @@ export class AppService {
   }
 
   getMode(): string {
-    const mode = this.configService.get<string>('mode');
+    const { mode } = this.configService.get<any>('config');
     console.log(mode);
     return mode;
   }
