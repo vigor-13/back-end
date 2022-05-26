@@ -24,8 +24,8 @@ export class LocalAuthService implements OnModuleInit {
     }
   }
 
-  async validateUser(username: string, password: string): Promise<any> {
-    const user = await this.userService.findOne(username);
+  async validateUser(key: string, password: string): Promise<any> {
+    const user = await this.userService.findOne(key);
     if (user && user.password === password) {
       const { password, ...result } = user;
       return result;

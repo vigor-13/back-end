@@ -10,16 +10,18 @@ export class UserService implements AbstractUserService {
     {
       userId: 1,
       username: 'john',
+      email: 'kkw@gmail.com',
       password: 'changeme',
     },
     {
       userId: 2,
       username: 'maria',
+      email: '112@gmail.com',
       password: 'guess',
     },
   ];
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username);
+  async findOne(key: string): Promise<User | undefined> {
+    return this.users.find((user) => user.email === key);
   }
 }
