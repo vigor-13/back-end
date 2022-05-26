@@ -1,5 +1,4 @@
-import { Controller, Get, Post, Request, Response, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'libs/auth/guards';
+import { Controller, Post, Request, Response } from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -9,6 +8,9 @@ export class UserController {
   @Post('register')
   async register(@Request() req, @Response() res) {
     const user = await this.userService.createUser(req.body);
+    delete user.id;
+    delete user.password;
+
     return res.send(user);
   }
 }

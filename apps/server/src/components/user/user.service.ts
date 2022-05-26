@@ -3,6 +3,7 @@ import { AbstractUserService } from 'libs/auth';
 import { Prisma, User as PrismaUser } from '@prisma/client';
 import { DbPrismaService } from 'libs/db-prisma';
 import { AppLogger } from '@app/logger';
+import * as argon2 from 'argon2';
 
 // This should be a real class/interface representing a user entity
 export type User = PrismaUser;
@@ -36,8 +37,19 @@ export class UserService implements AbstractUserService {
   }
 
   async createUser(props: Prisma.UserCreateInput): Promise<User> {
+    const { password: rawPassword } = props;
+
     const isExists = await this.findUser({ email: props.email });
-    if (isExists) throw new Error('This email is already registered.');
+    if (isExists) {
+      throw new InternalServerErrorException('This email is already registered.');
+    }
+
+    const hashedPassword = await argon2.hash(rawPassword);
+    if (!hashedPassword) {
+      throw new InternalServerErrorException('Password hashing failed.');
+    }
+
+    props.password = hashedPassword;
 
     return this.prismaService.user.create({ data: props });
   }
