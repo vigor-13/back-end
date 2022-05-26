@@ -1,9 +1,13 @@
 import { Controller, Post, Request, Response } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly jwtService: JwtService
+  ) {}
 
   @Post('register')
   async register(@Request() req, @Response() res) {
@@ -11,6 +15,8 @@ export class UserController {
     delete user.id;
     delete user.password;
 
-    return res.send(user);
+    const token = this.jwtService.sign(user);
+
+    return res.send({ access_token: token });
   }
 }
