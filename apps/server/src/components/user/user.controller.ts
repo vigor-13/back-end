@@ -1,5 +1,6 @@
 import { Controller, Post, Request, Response } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { Prisma } from '@prisma/client';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -11,7 +12,12 @@ export class UserController {
 
   @Post('register')
   async register(@Request() req, @Response() res) {
-    const user = await this.userService.createUser(req.body);
+    const body: Prisma.UserCreateInput = {
+      email: req.body.key,
+      password: req.body.password,
+    };
+
+    const user = await this.userService.createUser(body);
     delete user.id;
     delete user.password;
 

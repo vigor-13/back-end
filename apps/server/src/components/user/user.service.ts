@@ -37,9 +37,9 @@ export class UserService implements AbstractUserService {
   }
 
   async createUser(props: Prisma.UserCreateInput): Promise<User> {
-    const { password: rawPassword } = props;
+    const { email, password: rawPassword } = props;
 
-    const isExists = await this.findUser({ email: props.email });
+    const isExists = await this.findUser({ email });
     if (isExists) {
       throw new InternalServerErrorException('This email is already registered.');
     }
